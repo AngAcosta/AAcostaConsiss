@@ -1,0 +1,110 @@
+﻿
+@{
+    ViewBag.Title = "ValidacioneJS";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Formulario</h2>
+
+<body>
+    <form name="frmDatos" action="insertaDatos.asp" method="post">
+        <table>
+
+            <tr>
+                <td>Nombre</td>
+                <td><input name="txtNombre" type="text" value=""/></td>
+            </tr>
+
+            <tr>
+                <td>Direccion</td>
+                <br />
+                <td><input name="txtDireccion" type="text" value=""/></td>
+            </tr>
+
+            <tr>
+                <td>Edad</td>
+                <br />
+                <td><input name="txtEdad" type="text" value="" /></td>
+            </tr>
+
+            <tr>
+                <td>Correo</td>
+                <br />
+                <td><input name="txtCorreo" type="text" value="" /></td>
+            </tr>
+
+            <tr>
+                <td>Habilidad Principal</td>
+                <br />
+                <td><input name="txtHPrincipal" type="text" value="" /></td>
+            </tr>
+
+            <tr>
+                <td>Habilidad Secundaria</td>
+                <br />
+                <td><input name="txtHSecundaria" type="text" value="" /></td>
+            </tr>
+
+            <tr>
+                <td colspan="2"><input type="submit" value="" onclick="validaEnviada()" /></td>
+            </tr>
+
+        </table>
+    </form>
+</body>
+
+@section Scripts {
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+
+    <script type="text/javascript">
+
+        function validaEnviada() { //Campos Vacios
+            if (document.frmDatos.txtNombre.value.length == 0) {
+                alert("Ingresa Tu Nombre")
+                document.frmDatos.txtNombre.focus()
+                return 0;
+            }
+            if (document.frmDatos.txtDireccion.value.length == 0) {
+                alert("Ingresa Tu Direccion")
+                document.frmDatos.txtDireccion.focus()
+                return 0;
+            }
+            if (document.frmDatos.txtCorreo.value.length == 0) {
+                alert("Ingresa Tu Correo")
+                document.frmDatos.txtCorreo.focus()
+                return 0;
+            }
+            if (document.frmDatos.txtEdad.value < 10) { //Validar si es mayor a 10
+                alert("Ingresa una Edad de mayor a 10")
+                document.frmDatos.txtEdad.focus()
+                return 0;
+            }
+            if (document.frmDatos.txtEdad.value > 90) { //Validar 
+                alert("Ingresa una Edad menor a 90")
+                document.frmDatos.txtEdad.focus()
+                return 0;
+            }
+            if (document.frmDatos.txtHPrincipal.value.length == 0) {
+                alert("Ingresa Tu Habilidad Principal")
+                document.frmDatos.txtHPrincipal.focus()
+                return 0;
+            }
+            if (document.frmDatos.txtHSecundaria.value.length == 0) {
+                alert("Ingresa Tu Habilidad Secundaria")
+                document.frmDatos.txtHSecundaria.focus()
+                return 0;
+            }
+        }
+
+        function Edad() {
+            if (/*document.frmDatos.txtEdad.value < 10*/ document.frmDatos.txtEdad.value > 90) {
+                alert("Ingresa una Edad de mayor a 10 y menor a 90")
+                document.frmDatos.txtEdad.focus()
+                return 0;
+            }
+        }
+    </script>
+}
