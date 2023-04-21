@@ -17,11 +17,8 @@ namespace XML
             foreach (XmlNode n1 in doc.DocumentElement.ChildNodes)
             {
                 bool noticia = n1.Attributes["noticia"] != null;
+                Console.WriteLine(n1.Name + " " + n1.InnerText);
 
-                foreach (XmlNode n2 in n1.ChildNodes)
-                {
-                    Console.WriteLine(n2.Name + " " + n1.InnerText);
-                }
             }
             Console.ReadLine();
         }
